@@ -1,0 +1,11 @@
+package com.example.bridge;
+
+public class BlueCircle extends Circle {
+
+	@Override
+	public void applyColor() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

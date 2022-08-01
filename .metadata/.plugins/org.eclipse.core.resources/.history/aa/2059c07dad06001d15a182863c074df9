@@ -1,0 +1,18 @@
+package com.example.demo.singleton;
+
+
+//1.2 Lazy Singleton
+//É carregado na inicialização da aplicação, podendo deixa-la mais lenta
+public class SingletonCourseLazy {
+	
+	private static SingletonCourseLazy instance = null;
+	
+	private SingletonCourseLazy(){}
+	
+	public static SingletonCourseLazy getInstance() {
+		if (instance == null) {
+			instance = new SingletonCourseLazy();
+		}
+		return instance;
+	}
+}

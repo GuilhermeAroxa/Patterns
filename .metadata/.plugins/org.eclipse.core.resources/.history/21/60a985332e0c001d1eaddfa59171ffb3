@@ -1,0 +1,25 @@
+package com.example.demo.iterator;
+
+import java.util.Iterator;
+
+public class showsRepository implements Iterable<String>{
+
+	private String [] shows;
+	private int index;
+	
+	
+	
+	public showsRepository() {
+		this.shows = new String[10];
+		this.index = 0;
+	}
+
+
+
+	@Override
+	public Iterator<String> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

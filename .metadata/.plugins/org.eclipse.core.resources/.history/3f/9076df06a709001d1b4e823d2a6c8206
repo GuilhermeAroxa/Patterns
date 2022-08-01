@@ -1,0 +1,5 @@
+package com.example.bridge;
+
+public abstract class Circle extends Shape {
+
+}

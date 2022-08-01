@@ -1,0 +1,8 @@
+package com.example.demo.adapter;
+
+public interface person {
+	public String getRg();
+	public String getFirstName();
+	public String getLastName();
+	public String getCountry();
+}

@@ -1,0 +1,11 @@
+package com.example.demo.command;
+
+public class ToggleCommand implements Command {
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

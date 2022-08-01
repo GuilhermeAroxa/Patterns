@@ -1,0 +1,10 @@
+package com.example.bridge.bridge;
+
+public class Blue implements Color {
+
+	@Override
+	public void applyColor() {
+		System.out.println("Applying blue to Circle");
+	}
+
+}

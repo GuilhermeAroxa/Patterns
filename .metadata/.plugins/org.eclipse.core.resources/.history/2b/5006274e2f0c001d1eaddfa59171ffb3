@@ -1,0 +1,27 @@
+package com.example.demo.iterator;
+
+import java.util.Iterator;
+
+public class showsRepository implements Iterable<String>{
+
+	private String [] shows;
+	private int index;
+		
+	public showsRepository() {
+		this.shows = new String[10];
+		this.index = 0;
+	}
+
+	public void addShow(String show) {
+		if (index == shows.length) {
+			String [] largerShows = new String[shows.length + 5];
+			System.arraycopy(show, 0, largerShows, 0, show.length());
+		}
+	}
+	@Override
+	public Iterator<String> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.example.demo.singleton;
+
+public class SingletonCourse {
+	
+	private static SingletonCourse instance = null;
+	
+	private SingletonCourse(){}
+	
+	public static SingletonCourse getInstance() {
+		if (instance == null) {
+			instance = new SingletonCourse();
+		}
+		return instance;
+	}
+}

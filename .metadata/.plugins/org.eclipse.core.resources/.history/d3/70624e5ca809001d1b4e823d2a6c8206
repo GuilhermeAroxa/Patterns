@@ -1,0 +1,14 @@
+package com.example.bridge.bridge;
+
+public abstract class Circle extends Shape {
+
+	public Circle(Color color) {
+		super(color);
+	}
+
+	@Override
+	public void applyColor() {
+		this.color.applyColor();
+	}
+
+}

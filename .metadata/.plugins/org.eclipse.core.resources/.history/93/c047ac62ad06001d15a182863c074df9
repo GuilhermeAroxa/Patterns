@@ -1,0 +1,14 @@
+package com.example.demo.singleton;
+
+//1.1 Static Singleton - 
+//É carregado na inicialização da aplicação, podendo deixa-la mais lenta
+public class SingletonCourse {
+	
+	private static SingletonCourse instance = new SingletonCourse();
+	
+	private SingletonCourse(){}
+	
+	public static SingletonCourse getInstance() {
+		return instance;
+	}
+}

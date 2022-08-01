@@ -1,0 +1,9 @@
+package com.example.demo.prototype;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Registry {
+
+	private Map<String, Course> courses = new HashMap<String, Course>();
+}

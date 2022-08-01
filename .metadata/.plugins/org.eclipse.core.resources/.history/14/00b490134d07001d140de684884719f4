@@ -1,0 +1,98 @@
+package com.example.demo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.demo.builder.BuilderCourse;
+import com.example.demo.prototype.LanguageCourse;
+import com.example.demo.prototype.PrototypeCourse;
+import com.example.demo.prototype.Record;
+import com.example.demo.prototype.Registry;
+import com.example.demo.singleton.SingletonCourse;
+import com.example.demo.singleton.SingletonCourseLazy;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		System.out.println("================== 1 - Singleton Início ==================");
+		System.out.println("Exemplos: Runtime.getRuntime\n");
+
+			System.out.println("================== 1.1 - Static Singleton==================");
+			
+				SingletonCourse singletonRuntime = SingletonCourse.getInstance();
+				
+				System.out.println(singletonRuntime);
+				
+				SingletonCourse anotherRuntime = SingletonCourse.getInstance();
+				
+				System.out.println(anotherRuntime);
+				
+				if (anotherRuntime == singletonRuntime) {
+					System.out.println("São iguais");
+				}
+			
+			System.out.println("================== 1.2 - Lazy Singleton ==================");
+			
+				SingletonCourseLazy singletonRuntimeLazy = SingletonCourseLazy.getInstance();
+				
+				System.out.println(singletonRuntimeLazy);
+				
+				SingletonCourseLazy anotherRuntimeLazy = SingletonCourseLazy.getInstance();
+				
+				System.out.println(anotherRuntimeLazy);
+				
+				if (singletonRuntimeLazy == anotherRuntimeLazy) {
+					System.out.println("São iguais");
+				}
+			
+		System.out.println("=================================================\n");
+		
+		System.out.println("================== 2 - Builder ==================");
+			System.out.println("Exemplos: StringBuilder, DocumentBuilder, Locale.Builder\n");
+			
+			BuilderCourse.Builder builder = new BuilderCourse.Builder();
+			builder.author("Author").isPublic(false).title("Novo titulo").title("Novo sub titulo");
+			BuilderCourse builderCourse  = builder.build();
+			System.out.println(builderCourse.getTitle());
+			System.out.println(builderCourse.getIsPublic());
+			System.out.println(builderCourse.getAuthor());
+		
+		System.out.println("===================================================\n");
+		System.out.println("================== 3 - Prototype ==================");
+			System.out.println("================== 3.1 - Shallow Copy =========");
+
+				String sql = "Select * from Brazil";
+				List<String> parameters = new ArrayList<String>();
+				parameters.add("vasco");
+				Record record = new Record();
+				PrototypeCourse prototypeCourse = new PrototypeCourse(sql, parameters, record);
+				System.out.println(prototypeCourse.getParameters());
+				System.out.println(prototypeCourse.getRecord());
+				PrototypeCourse prototypeCourseCloned = prototypeCourse.clone();
+				System.out.println(prototypeCourseCloned.getParameters());
+				System.out.println(prototypeCourseCloned.getRecord());
+			System.out.println("================== 3.2 - Deep Copy =========");
+				
+				Registry registry = new Registry();
+				LanguageCourse course = (LanguageCourse) registry.createCourse("LanguageCourse");
+				course.setName("Inglês");
+				LanguageCourse courseClone = (LanguageCourse) registry.createCourse("LanguageCourse");
+				courseClone.setName("Francês");
+				
+				System.out.println(course.getName());
+				System.out.println(course.getPrice());
+				System.out.println(course);
+	
+				System.out.println(courseClone.getName());
+				System.out.println(courseClone.getPrice());
+				System.out.println(courseClone);
+		System.out.println("=================================================\n");
+		System.out.println("=================== 4 - Factory =================\n");
+			
+	}
+
+}

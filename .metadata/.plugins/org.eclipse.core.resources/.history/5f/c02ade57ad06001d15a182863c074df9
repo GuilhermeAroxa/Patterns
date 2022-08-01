@@ -1,0 +1,12 @@
+package com.example.demo.singleton;
+
+public class SingletonCourse {
+	
+	private static SingletonCourse instance = new SingletonCourse();
+	
+	private SingletonCourse(){}
+	
+	public static SingletonCourse getInstance() {
+		return instance;
+	}
+}

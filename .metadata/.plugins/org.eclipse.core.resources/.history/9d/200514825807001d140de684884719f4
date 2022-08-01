@@ -1,0 +1,6 @@
+package com.example.demo.abstractFactory;
+
+public class Character {
+	protected String name;
+
+}

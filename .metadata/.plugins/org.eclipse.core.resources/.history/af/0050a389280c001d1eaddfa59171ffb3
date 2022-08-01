@@ -1,0 +1,67 @@
+package com.example.demo;
+
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.demo.chainOfResponsibility.Admin;
+import com.example.demo.chainOfResponsibility.AllCompany;
+import com.example.demo.chainOfResponsibility.Group;
+import com.example.demo.chainOfResponsibility.Permission;
+import com.example.demo.chainOfResponsibility.PermissionType;
+import com.example.demo.command.Command;
+import com.example.demo.command.Light;
+import com.example.demo.command.OnCommand;
+import com.example.demo.command.Switch;
+import com.example.demo.command.ToggleCommand;
+
+@SpringBootApplication
+public class BehavorialApplication {
+
+	public static void main(String[] args) {
+		System.out.println("==================== 1 - Chain of Responsibility ===================");
+			System.out.println("Exemplos: Spring Security Filter Chain, Logger Log");
+			
+			Admin guilherme = new Admin();
+			Group guilhermeAndJunior = new Group();
+			AllCompany newCompany = new AllCompany();
+	
+			guilherme.setSucessor(guilhermeAndJunior);
+			guilhermeAndJunior.setSucessor(newCompany);
+			
+			guilherme.handleRequest(new Permission("Adicionar Sócio a Empresa", PermissionType.ALL));
+			guilherme.handleRequest(new Permission("Adicionar Contato a Empresa", PermissionType.ANY));
+			guilherme.handleRequest(new Permission("Adicionar CNAE a empresa", PermissionType.ADMIN));
+			guilherme.handleRequest(new Permission("Remover Sócio da Empresa", PermissionType.GROUP));
+
+		System.out.println("============================================================");
+		System.out.println("==================== 2 - Command ===================");
+			System.out.println("Exemplos: java.lang.Runnable");
+			Light light = new Light();
+			
+			Switch lightSwitch = new Switch();
+			
+			Command onCommand = new OnCommand(light);
+			ToggleCommand toggleCommand = new ToggleCommand(light);
+			
+			lightSwitch.storeAndExecute(onCommand);
+			lightSwitch.storeAndExecute(toggleCommand);
+			lightSwitch.storeAndExecute(toggleCommand);
+			lightSwitch.storeAndExecute(toggleCommand);
+			lightSwitch.storeAndExecute(toggleCommand);
+		System.out.println("============================================================");
+		System.out.println("==================== 3 - Interpreter ===================");
+				System.out.println("Exemplos: Format");
+				
+				//IMC 
+				
+				CalcularImc
+	}
+	
+	private static int CalcularImc(int peso, int altura) {
+		
+		return 0;
+	}
+
+}

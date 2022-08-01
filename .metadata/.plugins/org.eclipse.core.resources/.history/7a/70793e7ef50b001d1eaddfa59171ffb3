@@ -1,0 +1,94 @@
+package com.example.demo;
+
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.adapter.Person;
+import com.example.adapter.PersonClient;
+import com.example.bridge.bridge.Blue;
+import com.example.bridge.bridge.Circle;
+import com.example.bridge.bridge.Shape;
+import com.example.bridge.bridge.Square;
+import com.example.bridge.bridge.Yellow;
+import com.example.decorator.GroupPermissionDecorator;
+import com.example.decorator.IndividualPermissionDecorator;
+import com.example.decorator.Permission;
+import com.example.decorator.SimplePermission;
+import com.example.facade.JdbcFacade;
+import com.example.flyweight.InventorySystem;
+
+@SpringBootApplication
+public class StructuralApplication {
+
+	public static void main(String[] args) {
+		System.out.println("==================== 1 - Adapter ===================");
+			System.out.println("Exemplos: Array.asList()");
+			PersonClient client = new PersonClient();
+			List<Person> persons = client.getPersons();
+			System.out.println(persons);
+			
+		System.out.println("====================================================");
+		System.out.println("==================== 2 - Bridge ===================");
+			System.out.println("Exemplos: Driver, JDBC");
+			Shape shape = new Circle(new Yellow());
+			shape.applyColor();
+			(new Square(new Blue())).applyColor();;
+		System.out.println("====================================================");
+		System.out.println("==================== 3 - Components ===================");
+			System.out.println("Exemplos: JSF Widgets, REST full services GETs");
+			Map<String, String> clientPermissions = new HashMap<>();
+			clientPermissions.put("mic", "allowed");
+			clientPermissions.put("cam", "notAllowed");
+			
+			Map<String, String> groupPermissions = new HashMap<>();
+			clientPermissions.put("localization", "allowed");
+			
+			Map<String, String> sessionPermissions = new HashMap<>();
+			sessionPermissions.putAll(clientPermissions);
+			sessionPermissions.putAll(groupPermissions);
+			
+			System.out.println(sessionPermissions);
+		System.out.println("====================================================");
+		System.out.println("==================== 4 - Decorator ===================");
+			System.out.println("Exemplos: InputSTream");
+			
+			System.out.println("\n======= Permissão Simples e em Grupo =======");
+			Permission permission = new SimplePermission();
+			permission = new GroupPermissionDecorator(permission);			
+
+			System.out.println(permission.givePermission());
+
+			System.out.println("\n======= Permissão Simples, em Grupo ou Individual =======");
+			permission = new IndividualPermissionDecorator(permission);			
+
+			System.out.println(permission.givePermission());
+
+		System.out.println("====================================================");
+		System.out.println("==================== 5 - Facade ===================");
+			System.out.println("Exemplos: java.net.URL");
+			try {
+				JdbcFacade jdbcFacade = new JdbcFacade();
+				jdbcFacade.createTable();
+				jdbcFacade.insertIntoTable();
+				jdbcFacade.getAddress();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+		System.out.println("====================================================");
+		System.out.println("==================== 6 - Flyweight ===================");
+			System.out.println("Exemplos: java.lang.String, java.lang.Integer, java.lang.Boolean");
+			
+			InventorySystem ims = new InventorySystem();
+			ims.takeOrder("Queijo", 221);
+			ims.process();
+			System.out.println(ims.report());
+	}
+
+}

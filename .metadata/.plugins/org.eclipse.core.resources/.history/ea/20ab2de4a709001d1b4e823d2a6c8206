@@ -1,0 +1,5 @@
+package com.example.bridge.bridge;
+
+public abstract class Square extends Shape {
+
+}

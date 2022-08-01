@@ -1,0 +1,11 @@
+package factory;
+
+public class Magician extends Fighter {
+
+	@Override
+	public void createFighter() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

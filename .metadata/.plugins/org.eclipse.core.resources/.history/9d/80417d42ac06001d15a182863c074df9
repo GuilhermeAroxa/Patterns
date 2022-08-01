@@ -1,0 +1,23 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		SingletonCourse singletonRuntime = SingletonCourse.getInstance();
+		
+		System.out.println(singletonRuntime);
+		
+		SingletonCourse anotherRuntime = SingletonCourse.getInstance();
+		
+		System.out.println(anotherRuntime);
+		
+		if (anotherRuntime == singletonRuntime) {
+			System.out.println("São iguais");
+		}
+	}
+
+}

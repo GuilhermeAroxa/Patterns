@@ -1,0 +1,11 @@
+package com.example.bridge;
+
+public class BlueSquare extends Square {
+
+	@Override
+	public void applyColor() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

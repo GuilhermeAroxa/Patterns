@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.example.demo.singleton.SingletonCourseLazy"/>
+    <fullyQualifiedTypeName name="com.example.demo.builder.BuilderCourse"/>
+    <fullyQualifiedTypeName name="com.example.demo.builder.BuilderCourse.Builder"/>
+    <fullyQualifiedTypeName name="com.example.demo.prototype.PrototypeCourse"/>
+    <fullyQualifiedTypeName name="com.example.demo.prototype.Record"/>
+    <fullyQualifiedTypeName name="com.example.demo.prototype.Registry"/>
+    <fullyQualifiedTypeName name="com.example.demo.prototype.LanguageCourse"/>
+    <fullyQualifiedTypeName name="factory.FighterFactory"/>
+    <fullyQualifiedTypeName name="factory.FighterType"/>
+    <fullyQualifiedTypeName name="factory.Fighter"/>
+    <fullyQualifiedTypeName name="com.example.demo.adapter.PersonClient"/>
+    <fullyQualifiedTypeName name="com.example.demo.adapter.Person"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="com.example.bridge.bridge.Shape"/>
+    <fullyQualifiedTypeName name="com.example.bridge.bridge.Circle"/>
+    <fullyQualifiedTypeName name="com.example.bridge.bridge.Yellow"/>
+    <fullyQualifiedTypeName name="com.example.bridge.bridge.Blue"/>
+    <fullyQualifiedTypeName name="com.example.bridge.bridge.Square"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="com.example.decorator.Permission"/>
+    <fullyQualifiedTypeName name="com.example.decorator.SimplePermission"/>
+    <fullyQualifiedTypeName name="com.example.decorator.IndividualPermission"/>
+    <fullyQualifiedTypeName name="com.example.decorator.GroupPermissionDecorator"/>
+    <fullyQualifiedTypeName name="com.example.decorator.IndividualPermissionDecorator"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.example.facade.JdbcFacade"/>
+    <fullyQualifiedTypeName name="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,10 @@
+package com.example.demo.adapter;
+
+import java.util.List;
+
+public class PersonClient {
+	
+	public List<Person> getPersons(){
+		
+	}
+}

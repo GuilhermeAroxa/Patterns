@@ -1,0 +1,18 @@
+package factory;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Fighter {
+	protected List<String> attributes = new ArrayList<String>();
+	
+	public Fighter() {
+		this.createFighter();
+	}
+		
+	public List<String> getAttributes() {
+		return attributes;
+	}
+
+	public abstract void createFighter();
+}

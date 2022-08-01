@@ -1,0 +1,12 @@
+package com.example.flyweight;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public class InventorySystem {
+	
+	private final Catalog catalog = new Catalog();
+	private final List<Order> orders = new CopyOnWriteArrayList<Order>();
+	
+	
+}

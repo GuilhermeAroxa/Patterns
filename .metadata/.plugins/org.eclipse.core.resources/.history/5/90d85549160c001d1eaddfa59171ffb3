@@ -1,0 +1,15 @@
+package com.example.demo.chainOfResponsibility;
+
+public class Permission {
+
+	private PermissionType permissionType;
+	private String permissionDescription;
+	
+	public Permission(String permissionDescription) {
+		this.permissionDescription = permissionDescription;
+	}
+
+	public String getPermissionType() {
+		return permissionType;
+	}
+}

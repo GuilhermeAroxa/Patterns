@@ -1,0 +1,123 @@
+package com.example.demo;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.demo.chainOfResponsibility.Admin;
+import com.example.demo.chainOfResponsibility.AllCompany;
+import com.example.demo.chainOfResponsibility.Group;
+import com.example.demo.chainOfResponsibility.Permission;
+import com.example.demo.chainOfResponsibility.PermissionType;
+import com.example.demo.command.Command;
+import com.example.demo.command.Light;
+import com.example.demo.command.OnCommand;
+import com.example.demo.command.Switch;
+import com.example.demo.command.ToggleCommand;
+import com.example.demo.iterator.ShowsRepository;
+
+@SpringBootApplication
+public class BehavorialApplication {
+
+	public static void main(String[] args) {
+		System.out.println("==================== 1 - Chain of Responsibility ===================");
+			System.out.println("Exemplos: Spring Security Filter Chain, Logger Log");
+			
+			Admin guilherme = new Admin();
+			Group guilhermeAndJunior = new Group();
+			AllCompany newCompany = new AllCompany();
+	
+			guilherme.setSucessor(guilhermeAndJunior);
+			guilhermeAndJunior.setSucessor(newCompany);
+			
+			guilherme.handleRequest(new Permission("Adicionar Sócio a Empresa", PermissionType.ALL));
+			guilherme.handleRequest(new Permission("Adicionar Contato a Empresa", PermissionType.ANY));
+			guilherme.handleRequest(new Permission("Adicionar CNAE a empresa", PermissionType.ADMIN));
+			guilherme.handleRequest(new Permission("Remover Sócio da Empresa", PermissionType.GROUP));
+
+		System.out.println("============================================================");
+		System.out.println("==================== 2 - Command ===================");
+			System.out.println("Exemplos: java.lang.Runnable");
+			Light light = new Light();
+			
+			Switch lightSwitch = new Switch();
+			
+			Command onCommand = new OnCommand(light);
+			ToggleCommand toggleCommand = new ToggleCommand(light);
+			
+			lightSwitch.storeAndExecute(onCommand);
+			lightSwitch.storeAndExecute(toggleCommand);
+			lightSwitch.storeAndExecute(toggleCommand);
+			lightSwitch.storeAndExecute(toggleCommand);
+			lightSwitch.storeAndExecute(toggleCommand);
+			
+		System.out.println("============================================================");
+		System.out.println("==================== 3 - Interpreter ===================");
+				System.out.println("Exemplos: Format");
+				System.out.printf("%.2f", CalcularImc(110, 1.88));
+				
+		System.out.println("\n============================================================");
+		System.out.println("======================= 4 - Iterator ======================");
+		System.out.println("Exemplos: java.util.Iterator, java.util.Enumeration");
+			List<String> list = new ArrayList<>();
+			list.add("Guilherme");
+			list.add("Siqueira");
+			list.add("Arôxa");
+			
+			Iterator<String> namesItr = list.iterator();
+			while(namesItr.hasNext()) {
+				String name = namesItr.next();
+				if (name.equals("Siqueira"))
+					namesItr.remove();
+				System.out.println(name);
+			}
+			System.out.println(list);
+			
+			ShowsRepository showsRepository = new ShowsRepository();
+			showsRepository.addShow("Dark");
+			showsRepository.addShow("Stranger Things");
+			showsRepository.addShow("The Boys");
+			
+			Iterator<String> showsItr = showsRepository.iterator();
+			
+			while(showsItr.hasNext()) {
+				String show = showsItr.next();
+				if (show.equals("Dark"))
+					System.out.println(show + " - The Best");
+				else
+					System.out.println(show);
+			}
+		System.out.println("\n============================================================");
+		System.out.println("======================= 5 - Mediator ======================");
+		System.out.println("Exemplos: java.util.Timer");
+			Timer timer = new Timer();
+			System.out.println("Última chamada");
+			timer.schedule(new Arriving(), 2 * 1000);
+			System.out.println("Acabou, quem chegar depois não pode entrar");
+	}
+	
+	static class Arriving extends TimerTask {
+		@Override
+		public void run() {
+			System.out.println("Cheguei...");
+		}
+	}
+
+	private static double CalcularImc(double peso, double altura) {
+		return Dividindo(peso, Potencia(altura));
+	}
+	
+	
+	private static double Dividindo(double num1, double num2) {
+		return num1/num2;
+	}
+	
+	private static double Potencia(double num) {
+		return num*num;
+	}
+}

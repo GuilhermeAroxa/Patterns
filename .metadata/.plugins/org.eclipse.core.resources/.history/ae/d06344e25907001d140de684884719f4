@@ -1,0 +1,16 @@
+package com.example.demo.abstractFactory;
+
+public class FighterFactory extends CharacterFactory{
+//	public static Fighter getFighter(FighterType type) {
+//		switch(type) {
+//			case TANK:
+//				return new Tank();
+//			case RANGER:
+//				return new Ranger();
+//			case MAGICIAN:
+//				return new Magician();
+//			default:
+//				return null;
+//		}
+//	}
+}

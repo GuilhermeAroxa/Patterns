@@ -1,0 +1,13 @@
+package com.example.decorator;
+
+public class IndividualPermission extends PermissionDecorator {
+	
+	public IndividualPermission(Permission permission) {
+		super(permission);
+	}
+
+	public String givePermission() {
+		return customPermission.givePermission()+"\nPermissão em Individual Liberada"; 
+	}
+
+}

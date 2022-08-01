@@ -1,0 +1,20 @@
+package com.example.demo.singleton;
+
+
+//1.2 Lazy Singleton
+//É carregado na primeira instanciação da classe, não é thread safe
+
+public class SingletonCourseLazy {
+	
+//	private static SingletonCourseLazy instance = null;
+//	
+//	private SingletonCourseLazy(){}
+//	
+//	public static SingletonCourseLazy getInstance() {
+//		if (instance == null) {
+//			instance = new SingletonCourseLazy();
+//		}
+//		return instance;
+//	}
+	
+}

@@ -1,0 +1,35 @@
+package com.example.adapter;
+
+public class PortugueseAdapter implements Person {
+
+	private Portuguese instance;
+	
+	
+	public PortugueseAdapter(Portuguese instance) {
+		this.instance = instance;
+	}
+
+	@Override
+	public String getRg() {
+		return this.instance.getNif();
+	}
+
+	@Override
+	public String getFirstName() {
+		return this.instance.getFirstName();
+	}
+
+	@Override
+	public String getLastName() {
+		return this.instance.getApelido();
+	}
+
+	@Override
+	public String getCountry() {
+		return this.instance.getCountry();
+	}
+
+	public String toString() {
+		return "\nID: " + instance.getNif() + ", Primeiro Nome: " + instance.getFirstName() + ", Último Nome: " + instance.getApelido() + ", País: " + instance.getCountry();
+	}
+}

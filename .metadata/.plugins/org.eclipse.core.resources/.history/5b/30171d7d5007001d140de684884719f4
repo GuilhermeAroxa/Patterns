@@ -1,0 +1,11 @@
+package factory;
+
+public class Tank extends Fighter {
+
+	@Override
+	public void createFighter() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

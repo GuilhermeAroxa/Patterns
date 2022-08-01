@@ -1,0 +1,40 @@
+package com.example.demo.adapter;
+
+public class Brazilian implements person {
+	private String rg;
+	private String firstName;
+	private String lastName;
+	private String country;
+	
+	@Override
+	public String getRg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Brazilian(String rg, String firstName, String lastName, String country) {
+		this.rg = rg;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.country = country;
+	}
+
+	@Override
+	public String getFirstName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getLastName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getCountry() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

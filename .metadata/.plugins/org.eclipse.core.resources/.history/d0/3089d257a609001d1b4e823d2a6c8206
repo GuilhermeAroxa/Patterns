@@ -1,0 +1,10 @@
+package com.example.bridge;
+
+public class RedSquare extends Square {
+
+	@Override
+	public void applyColor() {
+		System.out.println("Applying blue to Square");
+	}
+
+}

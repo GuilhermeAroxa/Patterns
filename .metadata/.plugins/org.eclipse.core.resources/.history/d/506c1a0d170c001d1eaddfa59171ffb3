@@ -1,0 +1,13 @@
+package com.example.demo.chainOfResponsibility;
+
+public class Admin extends Handler{
+
+	@Override
+	public void handleRequest(Permission permission) {
+		if (permission.getPermissionType().equals(PermissionType.ANY) || permission.getPermissionType().equals(PermissionType.ADMIN) ) {
+			System.out.println("O administrador tem permissão para: " + permission.getPermissionDescription());
+		} else {
+			sucessor.handleRequest(permission);
+		}
+	}
+}

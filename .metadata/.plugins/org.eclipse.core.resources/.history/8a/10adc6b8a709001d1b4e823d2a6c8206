@@ -1,0 +1,8 @@
+package com.example.bridge.bridge;
+
+public abstract class Shape {
+
+	public Shape(Color color) {}
+	public abstract void applyColor();
+
+}

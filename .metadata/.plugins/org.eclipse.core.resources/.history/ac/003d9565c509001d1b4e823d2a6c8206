@@ -1,0 +1,46 @@
+package com.example.facade;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+/**
+ *
+ * @author Deny Prasetyo
+ */
+public class DatabaseConnection {
+
+    private static DatabaseConnection instance;
+    private Connection connection;
+    private String url = "jdbc:postgresql://localhost:5432/designpatternscourse";
+    private String username = "postgres";
+    private String password = "rootPass";
+
+    private DatabaseConnection() throws SQLException {
+        try {
+            Class.forName("org.postgresql.Driver");
+            this.connection = DriverManager.getConnection(url, username, password);
+            
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Database Connection Creation Failed : " + ex.getMessage());
+        }
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public static DatabaseConnection getInstance() throws SQLException {
+    	System.out.println("Oi Inicial");
+        if (instance == null) {
+        	System.out.println("Oi 1");
+            instance = new DatabaseConnection();
+        } else if (instance.getConnection().isClosed()) {
+        	System.out.println("Oi 2");
+            instance = new DatabaseConnection();
+        }
+    	System.out.println(instance.getConnection().isClosed());
+        
+        return instance;
+    }
+}

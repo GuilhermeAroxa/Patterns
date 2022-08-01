@@ -1,0 +1,46 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.demo.singleton.SingletonCourse;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		System.out.println("================== 1 - Singleton Início ==================");
+	
+			System.out.println("================== 1.1 - Static Singleton==================");
+			
+				SingletonCourse singletonRuntime = SingletonCourse.getInstance();
+				
+				System.out.println(singletonRuntime);
+				
+				SingletonCourse anotherRuntime = SingletonCourse.getInstance();
+				
+				System.out.println(anotherRuntime);
+				
+				if (anotherRuntime == singletonRuntime) {
+					System.out.println("São iguais");
+				}
+			
+			System.out.println("================== 1.2 - Lazy Singleton==================");
+			
+				SingletonCourse singletonRuntime = SingletonCourse.getInstance();
+				
+				System.out.println(singletonRuntime);
+				
+				SingletonCourse anotherRuntime = SingletonCourse.getInstance();
+				
+				System.out.println(anotherRuntime);
+				
+				if (anotherRuntime == singletonRuntime) {
+					System.out.println("São iguais");
+				}
+			
+		System.out.println("=============================================================");
+		
+	}
+
+}

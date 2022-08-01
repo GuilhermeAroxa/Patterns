@@ -1,0 +1,11 @@
+package com.example.demo.abstractFactory;
+
+public class SoccerPlayerFactory extends CharacterFactory {
+
+	@Override
+	public Character getCharacter(FighterType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

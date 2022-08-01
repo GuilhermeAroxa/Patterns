@@ -1,0 +1,39 @@
+package com.example.demo;
+
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.demo.chainOfResponsibility.Admin;
+import com.example.demo.chainOfResponsibility.AllCompany;
+import com.example.demo.chainOfResponsibility.Group;
+import com.example.demo.chainOfResponsibility.Permission;
+import com.example.demo.chainOfResponsibility.PermissionType;
+
+@SpringBootApplication
+public class BehavorialApplication {
+
+	public static void main(String[] args) {
+		System.out.println("==================== 1 - Chain of Responsibility ===================");
+			System.out.println("Exemplos: Spring Security Filter Chain, Logger Log");
+			
+			Admin guilherme = new Admin();
+			Group guilhermeAndJunior = new Group();
+			AllCompany newCompany = new AllCompany();
+	
+			guilherme.setSucessor(guilhermeAndJunior);
+			guilhermeAndJunior.setSucessor(newCompany);
+			
+			guilherme.handleRequest(new Permission("Adicionar Sócio a Empresa", PermissionType.ALL));
+			guilherme.handleRequest(new Permission("Adicionar Contato a Empresa", PermissionType.ANY));
+			guilherme.handleRequest(new Permission("Adicionar CNAE a empresa", PermissionType.ADMIN));
+			guilherme.handleRequest(new Permission("Remover Sócio da Empresa", PermissionType.GROUP));
+
+		System.out.println("============================================================");
+		System.out.println("==================== 2 - Command ===================");
+			System.out.println("Exemplos: java.lang.Runnable");
+			
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.example.demo.builder;
+
+
+//2 Builder
+//Cria objetos com muitos parâmetros
+public class builderCourse {
+	private String title;
+	private String subTitle;
+	private String rate;
+	private String author;
+	private Boolean isPublic;
+}

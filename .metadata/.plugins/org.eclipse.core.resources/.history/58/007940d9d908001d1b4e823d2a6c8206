@@ -1,0 +1,38 @@
+package com.example.demo.adapter;
+
+public class Brazilian implements Person {
+	private String rg;
+	private String firstName;
+	private String lastName;
+	private String country;
+	
+	public Brazilian(String rg, String firstName, String lastName, String country) {
+		this.rg = rg;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.country = country;
+	}
+
+	@Override
+	public String getRg() {
+		return this.rg;
+	}
+
+
+	@Override
+	public String getFirstName() {
+		return this.firstName;
+	}
+
+	@Override
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	@Override
+	public String getCountry() {
+		// TODO Auto-generated method stub
+		return this.country;
+	}
+
+}

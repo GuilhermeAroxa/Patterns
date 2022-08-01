@@ -1,0 +1,37 @@
+package com.example.demo.adapter;
+
+public class Portuguese {
+	private String nif;
+	private String firstName;
+	private String lastName;
+	private String country;
+	
+	public Portuguese(String nif, String firstName, String lastName, String country) {
+		this.nif = nif;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.country = country;
+	}
+
+	@Override
+	public String getNif() {
+		return this.nif;
+	}
+
+
+	@Override
+	public String getFirstName() {
+		return this.firstName;
+	}
+
+	@Override
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	@Override
+	public String getCountry() {
+		return this.getCountry();
+	}
+
+}

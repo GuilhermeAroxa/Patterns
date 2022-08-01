@@ -1,0 +1,17 @@
+package factory;
+
+public class FighterFactory {
+
+	public static Fighter getFighter(FighterType type) {
+		
+		switch(type) {
+			case TANK:
+				return new Tank();
+			case RANGER:
+				return new Ranger();
+			case MAGICIAN:
+				return new Magician();
+			
+		}
+	}
+}

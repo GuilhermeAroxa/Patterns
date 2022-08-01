@@ -1,0 +1,16 @@
+package com.example.demo.adapter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PersonClient {
+	
+	public List<Person> getPersons(){
+		
+		List<Person> persons = new ArrayList<Person>();
+		Person person = new Brazilian("837164561", "Guilherme", "Arôxa", "Brasil");
+		persons.add(person);
+		
+		return persons;
+	}
+}

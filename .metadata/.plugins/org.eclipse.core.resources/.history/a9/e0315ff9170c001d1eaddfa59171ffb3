@@ -1,0 +1,27 @@
+package com.example.demo;
+
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.adapter.Person;
+import com.example.adapter.PersonClient;
+import com.example.demo.chainOfResponsibility.Admin;
+import com.example.demo.chainOfResponsibility.AllCompany;
+import com.example.demo.chainOfResponsibility.Group;
+
+@SpringBootApplication
+public class BehavorialApplication {
+
+	public static void main(String[] args) {
+		System.out.println("==================== 1 - Chain of Responsibility ===================");
+		System.out.println("Exemplos: Spring Security Filter Chain, Logger Log");
+		
+		Admin Guilherme = new Admin();
+		Group GuilhermeAndJunior = new Group();
+		AllCompany NewCompany = new AllCompany();
+		
+	}
+
+}

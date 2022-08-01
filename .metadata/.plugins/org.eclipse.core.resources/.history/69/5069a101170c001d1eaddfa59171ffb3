@@ -1,0 +1,8 @@
+package com.example.demo.chainOfResponsibility;
+
+public abstract class Handler {
+	
+	protected Handler sucessor;
+	
+	
+}

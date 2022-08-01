@@ -1,0 +1,11 @@
+package com.example.decorator;
+
+public class PermissionDecorator implements Permission {
+
+	@Override
+	public String givePermission() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,19 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.example.demo.adapter.PersonClient;
+
+@SpringBootApplication
+public class StructuralApplication {
+
+	public static void main(String[] args) {
+		System.out.println("==================== 1 - Adapter ===================");
+		System.out.println("Exemplos: Array.asList()");
+		PersonClient client = new PersonClient();
+		
+		System.out.println("====================================================");
+	}
+
+}
